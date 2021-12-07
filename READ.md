@@ -30,4 +30,5 @@ npm publish
 # @darkobits/lolcatjs
 随机改变控制台输出字体的渐变颜色
 
- 
+# chalk 
+控制台输出字体变色, 有个点5.0版本需要import进来，这里node里用了4.0版本

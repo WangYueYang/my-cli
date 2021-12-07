@@ -18,6 +18,7 @@
   "license": "ISC",
   "dependencies": {
     "@darkobits/lolcatjs": "^3.1.5",
+    "chalk": "4.0.0",
     "commander": "^8.3.0",
     "figlet": "^1.5.2"
   }

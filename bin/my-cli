@@ -9,6 +9,7 @@ const transformed = Printer.fromString(strs);
 const {
   program
 } = require('commander');
+const chalk = require('chalk');
 
 program.version(transformed);
 
@@ -30,7 +31,7 @@ program
     if (handle) {
       handle(env);
     } else {
-      console.log(env, ': 暂未支持')
+      console.log(chalk.blue(env), chalk.red(': 暂未支持'));
     }
 
   })
