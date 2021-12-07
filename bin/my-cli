@@ -11,6 +11,7 @@ const {
 } = require('commander');
 const chalk = require('chalk');
 let json2ts = require("json2ts");
+const inquirer = require('inquirer');
 
 program.version(transformed);
 
@@ -19,7 +20,28 @@ program
 
 const dictionary = {
   create(env) {
+    inquirer
+      .prompt([
+        /* Pass your questions in here */
+        {
+          type: 'text',
+          message: '请输入文件夹名称',
+          name: 'dirname'
+        }
+      ])
+      .then((answers) => {
+        // Use user feedback for... whatever!!
 
+        console.log(answers.dirname)
+
+      })
+      .catch((error) => {
+        if (error.isTtyError) {
+          // Prompt couldn't be rendered in the current environment
+        } else {
+          // Something else went wrong
+        }
+      });
   },
   json2ts(url) {
     // fetch

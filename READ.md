@@ -35,3 +35,8 @@ npm publish
 
 # json2ts
 json 生成 ts 代码
+
+# inquirer
+收集控制台用户信息
+
+# shelljs
