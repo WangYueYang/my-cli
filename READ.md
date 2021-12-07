@@ -20,3 +20,7 @@ npm version major
 
 # 发布版本
 npm publish
+
+
+# 关于cli
+#！ /usr/bin/env node   帮助寻找node路径

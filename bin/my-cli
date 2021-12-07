@@ -1,0 +1,8 @@
+#! /usr/bin/env node
+const figlet = require('figlet');
+const Printer =  require('@darkobits/lolcatjs');
+const _version = require('../package.json').version;
+const input = figlet.textSync('My-cli');
+const strs = ` \n MY-cli ${_version} \n ${input}`; 
+const transformed = Printer.fromString(strs);
+console.log(transformed)

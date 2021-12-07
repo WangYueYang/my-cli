@@ -1,8 +1,11 @@
 {
   "name": "my-cli",
-  "version": "2.1.1",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "cli": "bin/my-cli"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +15,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@darkobits/lolcatjs": "^3.1.5",
+    "figlet": "^1.5.2"
+  }
 }
