@@ -1,0 +1,51 @@
+@import '~assets/css/globel.less';
+
+.header {
+  padding: 10px 60px;
+  background: #fff;
+  height: 40px;
+  line-height: 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-width: 1040px;
+  box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.08);
+  z-index: 10;
+  
+  .logo {
+    font-family: Dosis;
+    font-size: 1.3em;
+    font-weight: bold;
+  }
+
+  .header-nav {
+    float: right;
+    margin: 0;
+
+    li {
+      display: inline-block;
+      margin: 0 1.2em;
+
+      a {
+        padding-bottom: 3px;
+      }
+
+      a:hover {
+        border-bottom: 3px solid @borderBlue;
+      }
+    }
+
+    .search-inp {
+      height: 30px;
+      line-height: 30px;
+      box-sizing: border-box;
+      padding: 0 15px 0 30px;
+      border: 1px solid #e3e3e3;
+      color: #273849;
+      outline: none;
+      border-radius: 15px;
+      transition: border-color 0.2s ease;
+      background: #fff;
+    }
+  }
+}

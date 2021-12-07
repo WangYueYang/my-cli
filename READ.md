@@ -40,3 +40,9 @@ json 生成 ts 代码
 收集控制台用户信息
 
 # shelljs
+
+# ora
+控制台loading
+
+# download-git-repo
+用这个包下载GitHub上的项目

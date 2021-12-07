@@ -3,15 +3,19 @@
 const figlet = require('figlet');
 const Printer = require('@darkobits/lolcatjs');
 const _version = require('../package.json').version;
-const input = figlet.textSync('My-cli');
-const strs = ` \n MY-cli ${_version} \n ${input}`;
-const transformed = Printer.fromString(strs);
 const {
   program
 } = require('commander');
 const chalk = require('chalk');
 let json2ts = require("json2ts");
 const inquirer = require('inquirer');
+const shell = require('shelljs');
+const ora = require('ora');
+const download = require('download-git-repo');
+
+const input = figlet.textSync('My-cli');
+const strs = ` \n MY-cli ${_version} \n ${input}`;
+const transformed = Printer.fromString(strs);
 
 program.version(transformed);
 
@@ -33,6 +37,25 @@ const dictionary = {
         // Use user feedback for... whatever!!
 
         console.log(answers.dirname)
+        const _pwd = shell.pwd().stdout;
+        const projectPath = `${_pwd}/${answers.dirname}`;
+        shell.rm('-rf', projectPath);
+        shell.mkdir(projectPath);
+        const spinner = ora('⏰  downloading template...')
+        spinner.start();
+        const template = 'direct:https://github.com/WangYueYang/my-blog.git';
+        download(template, projectPath, {
+          clone: true
+        }, function (err) {
+          spinner.stop();
+          if (err) {
+            console.log(chalk.red(err, '下载失败'));
+          } else {
+            // 改package里的配置
+            shell.sed('-i', 'react-library', answers.dirname, projectPath + '/package.json');
+          }
+
+        });
 
       })
       .catch((error) => {
