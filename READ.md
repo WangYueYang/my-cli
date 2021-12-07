@@ -24,3 +24,10 @@ npm publish
 
 # 关于cli
 #！ /usr/bin/env node   帮助寻找node路径
+
+# figlet
+这个包可以改变控制台输出字体的样式
+# @darkobits/lolcatjs
+随机改变控制台输出字体的渐变颜色
+
+ 

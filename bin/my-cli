@@ -1,8 +1,38 @@
 #! /usr/bin/env node
+
 const figlet = require('figlet');
-const Printer =  require('@darkobits/lolcatjs');
+const Printer = require('@darkobits/lolcatjs');
 const _version = require('../package.json').version;
 const input = figlet.textSync('My-cli');
-const strs = ` \n MY-cli ${_version} \n ${input}`; 
+const strs = ` \n MY-cli ${_version} \n ${input}`;
 const transformed = Printer.fromString(strs);
-console.log(transformed)
+const {
+  program
+} = require('commander');
+
+program.version(transformed);
+
+program
+  .option('c, create', '初始化项目');
+
+const dictionary = {
+  create(env) {
+
+  }
+} 
+
+program
+  .usage("[cmd] <options>")
+  .arguments('<cmd>, [env]')  // <cmd> 时 program.oiption 里参数前面不能有 -或者 --
+  .action(function(cmd, env) {
+
+    const handle = dictionary[cmd];
+    if (handle) {
+      handle(env);
+    } else {
+      console.log(env, ': 暂未支持')
+    }
+
+  })
+
+program.parse(process.argv);
