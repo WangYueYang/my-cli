@@ -31,12 +31,17 @@ const dictionary = {
           type: 'text',
           message: '请输入文件夹名称',
           name: 'dirname'
+        },
+        {
+          type: 'list',
+          name: 'jskind',
+          message: '请选择开发语言',
+          choices: ['TypeScript', 'JavaScript']
         }
       ])
       .then((answers) => {
         // Use user feedback for... whatever!!
 
-        console.log(answers.dirname)
         const _pwd = shell.pwd().stdout;
         const projectPath = `${_pwd}/${answers.dirname}`;
         shell.rm('-rf', projectPath);
