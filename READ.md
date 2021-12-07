@@ -32,3 +32,6 @@ npm publish
 
 # chalk 
 控制台输出字体变色, 有个点5.0版本需要import进来，这里node里用了4.0版本
+
+# json2ts
+json 生成 ts 代码

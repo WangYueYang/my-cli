@@ -10,6 +10,7 @@ const {
   program
 } = require('commander');
 const chalk = require('chalk');
+let json2ts = require("json2ts");
 
 program.version(transformed);
 
@@ -19,13 +20,26 @@ program
 const dictionary = {
   create(env) {
 
+  },
+  json2ts(url) {
+    // fetch
+    const data = {
+      name: 'wang',
+      data: {
+        age: 21 || ''
+      }
+    };
+    const jsonContent = JSON.stringify(data);
+
+    let result = json2ts.convert(jsonContent);
+    console.log(result)
   }
-} 
+}
 
 program
   .usage("[cmd] <options>")
-  .arguments('<cmd>, [env]')  // <cmd> 时 program.oiption 里参数前面不能有 -或者 --
-  .action(function(cmd, env) {
+  .arguments('<cmd>, [env]') // <cmd> 时 program.oiption 里参数前面不能有 -或者 --
+  .action(function (cmd, env) {
 
     const handle = dictionary[cmd];
     if (handle) {
